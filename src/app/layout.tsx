@@ -3,6 +3,7 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Navlinks from "@/components/Navlinks";
+import PriceTicker from "@/components/PriceTicker";
 import { Suspense } from "react";
 
 const notoSerifBengali = Noto_Serif_Bengali({
@@ -25,6 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <Suspense fallback={<div className="h-12 border-y border-gray-100" />}>
           <Navlinks />
+        </Suspense>
+        <Suspense fallback={<div className="h-10 border-b border-gray-100" />}>
+          <PriceTicker />
         </Suspense>
         {children}
       </body>
