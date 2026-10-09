@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Navlinks from "@/components/Navlinks";
 import PriceTicker from "@/components/PriceTicker";
+import Footer from "@/components/Footer";
 import { Suspense } from "react";
 
 const hindSiliguri = Hind_Siliguri({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <PriceTicker />
         </Suspense>
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -42,7 +42,7 @@ const Header = () => {
 
                         <span className="text-sm font-medium">Rezwan</span>
 
-                        <span className="text-xs text-base-content/60">⌄</span>
+                        <span className="text-xs text-base-content/60">▾</span>
                     </div>
 
                     <ul
