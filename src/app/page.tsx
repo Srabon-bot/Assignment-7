@@ -37,6 +37,13 @@ export default async function Home() {
         }
         products={fallers}
       />
+
+      <ProductSection
+        id="সব-পণ্য"
+        title="সব পণ্য"
+        subtitle={`মোট ${toBn(products.length)}টি পণ্য দেখানো হচ্ছে`}
+        products={products}
+      />
     </main>
   );
 }
