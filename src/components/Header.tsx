@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import CurrentDate from "./CurrentDate";
 
 const Header = () => {
-
     return (
-        <div className="navbar min-h-0 bg-base-100 border-b border-base-300 py-2">
+        <header className="bg-base-100 py-2">
             <div className="container mx-auto flex items-center justify-between px-4">
 
-                <div className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2">
                     <div className="flex items-center justify-center rounded-xl bg-green-600 p-2">
                         <Image
                             src="/assets/logo-icon.png"
@@ -19,14 +19,12 @@ const Header = () => {
                     </div>
 
                     <div className="flex flex-col">
-                        <a className="text-lg font-bold leading-6 text-base-content">
+                        <span className="text-lg font-bold leading-6 text-base-content">
                             বাজার দর
-                        </a>
-                        <span className="text-sm text-base-content/70">
-                            <CurrentDate />
                         </span>
+                        <CurrentDate />
                     </div>
-                </div>
+                </Link>
 
                 <div className="dropdown dropdown-end">
                     <div
@@ -42,9 +40,7 @@ const Header = () => {
                             className="rounded-lg object-cover"
                         />
 
-                        <span className="text-sm font-medium">
-                            Rezwan
-                        </span>
+                        <span className="text-sm font-medium">Rezwan</span>
 
                         <span className="text-xs text-base-content/60">⌄</span>
                     </div>
@@ -59,7 +55,7 @@ const Header = () => {
                 </div>
 
             </div>
-        </div>
+        </header>
     );
 };
 
