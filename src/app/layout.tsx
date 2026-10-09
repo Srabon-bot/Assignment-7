@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Noto_Serif_Bengali } from "next/font/google";
+import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Navlinks from "@/components/Navlinks";
 import PriceTicker from "@/components/PriceTicker";
 import { Suspense } from "react";
 
-const notoSerifBengali = Noto_Serif_Bengali({
+const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="bn"
       data-theme="light"
-      className={`${notoSerifBengali.className} h-full antialiased`}
+      className={`${hindSiliguri.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />

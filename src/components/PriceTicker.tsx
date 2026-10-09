@@ -14,7 +14,7 @@ const PriceTicker = async () => {
                     <span key={p.id} className="flex items-center gap-2 px-4 text-sm">
                         <span>{p.image}</span>
                         <span className="font-medium">{p.nameBn}</span>
-                        <span className="text-gray-600">
+                        <span className="">
                             {toBn(p.today)} টাকা/{unitBn(p.unit)}
                         </span>
                         <PriceChange change={p.change} />
