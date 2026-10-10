@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import EmptyState from "@/components/EmptyState";
+import PriceSummary from "@/components/PriceSummary";
 import ProductBreadcrumb from "@/components/ProductBreadcrumb";
 import ProductSummary from "@/components/ProductSummary";
 import { getProduct } from "@/lib/api";
+import { getPriceStats } from "@/lib/stats";
 
 async function ProductContent({
   params,
@@ -17,6 +19,8 @@ async function ProductContent({
     return <EmptyState message="দুঃখিত, এই পণ্যটি খুঁজে পাওয়া যায়নি।" />;
   }
 
+  const stats = getPriceStats(product.markets);
+
   return (
     <>
       <ProductBreadcrumb
@@ -26,6 +30,17 @@ async function ProductContent({
       />
 
       <ProductSummary product={product} />
+
+      {stats && (
+        <section className="space-y-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+          <PriceSummary
+            min={stats.min}
+            max={stats.max}
+            avg={stats.avg}
+            unit={product.unit}
+          />
+        </section>
+      )}
     </>
   );
 }

@@ -8,6 +8,15 @@ export const toBnPercent = (n: number) =>
     maximumFractionDigits: 1,
   }).format(Math.abs(n));
 
+
+export const toBnAvg = (n: number) =>
+  Number.isInteger(n)
+    ? toBn(n)
+    : new Intl.NumberFormat("bn-BD", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(n);
+
 const UNIT_BN: Record<Unit, string> = {
   kg: "কেজি",
   litre: "লিটার",
