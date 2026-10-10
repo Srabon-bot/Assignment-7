@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CategoryHeader from "@/components/CategoryHeader";
 import CategoryProducts from "@/components/CategoryProducts";
+import EmptyState from "@/components/EmptyState";
 import { getCategory, getProducts } from "@/lib/api";
 
 async function CategoryContent({
@@ -12,10 +13,12 @@ async function CategoryContent({
 
   const [category, products] = await Promise.all([
     getCategory(slug),
-    getProducts(slug),
+    getProducts(slug).catch(() => []),
   ]);
 
-  if (!category) return <p>ক্যাটাগরি পাওয়া যায়নি।</p>; // replaced by EmptyState in Part 4
+  if (!category || products.length === 0) {
+    return <EmptyState />;
+  }
 
   return (
     <>
