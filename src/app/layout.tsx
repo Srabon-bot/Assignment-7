@@ -5,11 +5,13 @@ import Header from "@/components/Header";
 import Navlinks from "@/components/Navlinks";
 import PriceTicker from "@/components/PriceTicker";
 import Footer from "@/components/Footer";
+import AppToaster from "@/components/AppToaster";
 import { Suspense } from "react";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${hindSiliguri.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <AppToaster />
         <Header />
         <Suspense fallback={<div className="h-12 border-y border-gray-100" />}>
           <Navlinks />
