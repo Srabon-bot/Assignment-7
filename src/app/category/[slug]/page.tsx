@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CategoryHeader from "@/components/CategoryHeader";
 import CategoryProducts from "@/components/CategoryProducts";
+import CategorySkeleton from "@/components/CategorySkeleton";
 import EmptyState from "@/components/EmptyState";
 import { getCategory, getProducts } from "@/lib/api";
 
@@ -40,7 +41,7 @@ export default function CategoryPage({
 }) {
   return (
     <main className="container mx-auto w-full flex-1 space-y-6 px-4 py-6">
-      <Suspense fallback={<p className="text-gray-500">লোড হচ্ছে...</p>}>
+      <Suspense fallback={<CategorySkeleton />}>
         <CategoryContent params={params} />
       </Suspense>
     </main>
