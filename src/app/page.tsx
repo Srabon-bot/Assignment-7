@@ -1,9 +1,11 @@
+import { Suspense } from "react";
 import Hero from "@/components/Hero";
+import HomeSkeleton from "@/components/HomeSkeleton";
 import ProductSection from "@/components/ProductSection";
 import { getProducts } from "@/lib/api";
 import { toBn } from "@/lib/format";
 
-export default async function Home() {
+async function HomeSections() {
   const products = await getProducts();
 
   const risers = products
@@ -17,13 +19,11 @@ export default async function Home() {
     .slice(0, 6);
 
   return (
-    <main className="container mx-auto w-full flex-1 space-y-10 px-4 py-6">
-      <Hero />
-
+    <>
       <ProductSection
         title={
           <>
-            <span className="text-red-600">▲</span> আজ দাম বেড়েছে
+            <span className="text-green-600">▲</span> আজ দাম বেড়েছে
           </>
         }
         products={risers}
@@ -32,18 +32,30 @@ export default async function Home() {
       <ProductSection
         title={
           <>
-            <span className="text-green-600">▼</span> আজ দাম কমেছে
+            <span className="text-red-600">▼</span> আজ দাম কমেছে
           </>
         }
         products={fallers}
       />
-                          
+
       <ProductSection
         id="সব-পণ্য"
         title="সব পণ্য"
         subtitle={`মোট ${toBn(products.length)}টি পণ্য দেখানো হচ্ছে`}
         products={products}
       />
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="container mx-auto w-full flex-1 space-y-10 px-4 py-6">
+      <Hero />
+
+      <Suspense fallback={<HomeSkeleton />}>
+        <HomeSections />
+      </Suspense>
     </main>
   );
 }
