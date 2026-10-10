@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 import { Product } from "@/lib/types";
 import ProductCard from "./ProductCard";
 
 interface ProductSectionProps {
-    title: string;
+    title: ReactNode;
     subtitle?: string;
     products: Product[];
     id?: string;
