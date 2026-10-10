@@ -26,32 +26,19 @@ const Header = () => {
                     </div>
                 </Link>
 
-                <div className="dropdown dropdown-end">
-                    <div
-                        tabIndex={0}
-                        role="button"
-                        className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 hover:bg-base-200"
+                <div className="flex items-center gap-2 sm:gap-4">
+                    <Link
+                        href="/signin"
+                        className="btn btn-ghost btn-sm sm:btn-md font-medium"
                     >
-                        <Image
-                            src="/assets/Avatar.png"
-                            alt="User avatar"
-                            width={30}
-                            height={30}
-                            className="rounded-lg object-cover"
-                        />
-
-                        <span className="text-sm font-medium">Rezwan</span>
-
-                        <span className="text-xs text-base-content/60">▾</span>
-                    </div>
-
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content menu z-50 mt-2 w-40 rounded-box bg-base-100 p-2 shadow-lg"
+                        সাইন ইন
+                    </Link>
+                    <Link
+                        href="/signup"
+                        className="btn btn-sm sm:btn-md border-none bg-[#047F39] font-medium text-white shadow-md"
                     >
-                        <li><a>👤 আমার প্রোফাইল</a></li>
-                        <li><a className="text-[#D03739]">↩ সাইন আউট</a></li>
-                    </ul>
+                        সাইন আপ
+                    </Link>
                 </div>
 
             </div>

@@ -11,13 +11,13 @@ interface CategoryLinkProps {
 
 const CategoryLink = ({ slug, nameBn, icon }: CategoryLinkProps) => {
     const pathname = usePathname();
-    const href = `/${slug}`;
+    const href = `/category/${slug}`;
     const isActive = pathname === href;
 
     return (
         <Link
             href={href}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-bold transition-colors ${isActive
+            className={`inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-bold transition-colors ${isActive
                     ? "bg-[#047F39] text-white"
                     : "text-gray-600 hover:bg-green-50 hover:text-[#047F39]"
                 }`}

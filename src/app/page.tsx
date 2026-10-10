@@ -23,7 +23,7 @@ export default async function Home() {
       <ProductSection
         title={
           <>
-            <span className="text-green-600">▲</span> আজ দাম বেড়েছে
+            <span className="text-red-600">▲</span> আজ দাম বেড়েছে
           </>
         }
         products={risers}
@@ -32,12 +32,12 @@ export default async function Home() {
       <ProductSection
         title={
           <>
-            <span className="text-red-600">▼</span> আজ দাম কমেছে
+            <span className="text-green-600">▼</span> আজ দাম কমেছে
           </>
         }
         products={fallers}
       />
-
+                          
       <ProductSection
         id="সব-পণ্য"
         title="সব পণ্য"

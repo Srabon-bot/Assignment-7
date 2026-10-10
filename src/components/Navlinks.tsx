@@ -1,14 +1,9 @@
 import React from "react";
 import CategoryLink from "./CategoryLink";
-import { Category } from "@/lib/types";
+import { getCategories } from "@/lib/api";
 
 const Navlinks = async () => {
-    const res = await fetch(
-        "https://api.api-store.workers.dev/api/bazardor/categories",
-        { next: { revalidate: 3600 } }
-    );
-
-    const data: Category[] = await res.json();
+    const data = await getCategories();
 
     return (
         <nav className="border-y border-gray-100 bg-white">
