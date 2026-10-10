@@ -1,8 +1,7 @@
 import { Suspense } from "react";
 import CategoryHeader from "@/components/CategoryHeader";
-import ProductCard from "@/components/ProductCard";
+import CategoryProducts from "@/components/CategoryProducts";
 import { getCategory, getProducts } from "@/lib/api";
-import { toBn } from "@/lib/format";
 
 async function CategoryContent({
   params,
@@ -26,15 +25,7 @@ async function CategoryContent({
         count={products.length}
       />
 
-      <p className="text-sm text-gray-500">
-        মোট {toBn(products.length)}টি পণ্য দেখানো হচ্ছে
-      </p>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </div>
+      <CategoryProducts products={products} />
     </>
   );
 }
