@@ -1,11 +1,45 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { authClient } from "@/lib/auth-client";
+import { authErrorMessage } from "@/lib/auth-helpers";
 import FormField from "./FormField";
 
 const SignUpForm = () => {
-    // placeholder: real sign up logic is added with the auth setup
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+        const name = String(form.get("name")).trim();
+        const email = String(form.get("email"));
+        const password = String(form.get("password"));
+        const confirmPassword = String(form.get("confirmPassword"));
+
+        if (!name) {
+            toast.error("নাম লিখুন।");
+            return;
+        }
+        if (password !== confirmPassword) {
+            toast.error("পাসওয়ার্ড দুটি মিলছে না।");
+            return;
+        }
+
+        setLoading(true);
+        const { error } = await authClient.signUp.email({ name, email, password });
+        setLoading(false);
+
+        if (error) {
+            toast.error(authErrorMessage(error));
+            return;
+        }
+
+        toast.success("অ্যাকাউন্ট তৈরি হয়েছে! এবার সাইন ইন করুন।");
+        router.push("/signin");
     };
 
     return (
@@ -43,9 +77,14 @@ const SignUpForm = () => {
 
             <button
                 type="submit"
+                disabled={loading}
                 className="btn w-full border-none bg-[#047F39] font-medium text-white shadow-md"
             >
-                অ্যাকাউন্ট তৈরি করুন
+                {loading ? (
+                    <span className="loading loading-spinner loading-sm" />
+                ) : (
+                    "অ্যাকাউন্ট তৈরি করুন"
+                )}
             </button>
         </form>
     );

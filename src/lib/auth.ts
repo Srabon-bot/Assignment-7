@@ -1,7 +1,13 @@
+import dns from "node:dns";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { nextCookies } from "better-auth/next-js";
 import { MongoClient } from "mongodb";
+
+// some networks block the DNS lookup MongoDB Atlas needs; use public DNS in dev
+if (process.env.NODE_ENV !== "production") {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+}
 
 // reuse one connection while the dev server hot-reloads
 const globalForMongo = globalThis as unknown as { mongoClient?: MongoClient };
