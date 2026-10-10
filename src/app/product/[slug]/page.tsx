@@ -3,6 +3,7 @@ import EmptyState from "@/components/EmptyState";
 import MarketTable from "@/components/MarketTable";
 import PriceSummary from "@/components/PriceSummary";
 import ProductBreadcrumb from "@/components/ProductBreadcrumb";
+import ProductSkeleton from "@/components/ProductSkeleton";
 import ProductSummary from "@/components/ProductSummary";
 import { getProduct } from "@/lib/api";
 import { getPriceStats } from "@/lib/stats";
@@ -55,7 +56,7 @@ export default function ProductPage({
 }) {
   return (
     <main className="container mx-auto w-full flex-1 space-y-6 px-4 py-6">
-      <Suspense fallback={<p className="text-gray-500">লোড হচ্ছে...</p>}>
+      <Suspense fallback={<ProductSkeleton />}>
         <ProductContent params={params} />
       </Suspense>
     </main>

@@ -11,7 +11,7 @@ const MarketTable = ({ markets }: { markets: Market[] }) => {
             <h2 className="text-lg font-bold">বাজারভিত্তিক আজকের দাম</h2>
 
             <div className="mt-4 overflow-x-auto rounded-2xl border border-gray-200">
-                <table className="w-full min-w-[640px] text-left text-sm">
+                <table className="w-full min-w-160 text-left text-sm">
                     <thead>
                         <tr className="text-gray-500">
                             <th className="px-4 py-3 font-medium">বাজার</th>
