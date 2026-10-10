@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CurrentDate from "./CurrentDate";
+import AuthMenu from "./AuthMenu";
 
 const Header = () => {
     return (
@@ -26,20 +27,7 @@ const Header = () => {
                     </div>
                 </Link>
 
-                <div className="flex items-center gap-2 sm:gap-4">
-                    <Link
-                        href="/signin"
-                        className="btn btn-ghost btn-sm sm:btn-md font-medium"
-                    >
-                        সাইন ইন
-                    </Link>
-                    <Link
-                        href="/signup"
-                        className="btn btn-sm sm:btn-md border-none bg-[#047F39] font-medium text-white shadow-md"
-                    >
-                        সাইন আপ
-                    </Link>
-                </div>
+                <AuthMenu />
 
             </div>
         </header>
