@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import EmptyState from "@/components/EmptyState";
+import MarketTable from "@/components/MarketTable";
 import PriceSummary from "@/components/PriceSummary";
 import ProductBreadcrumb from "@/components/ProductBreadcrumb";
 import ProductSummary from "@/components/ProductSummary";
@@ -31,6 +32,7 @@ async function ProductContent({
 
       <ProductSummary product={product} />
 
+      {/* one section for both: price summary + market table */}
       {stats && (
         <section className="space-y-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
           <PriceSummary
@@ -39,6 +41,7 @@ async function ProductContent({
             avg={stats.avg}
             unit={product.unit}
           />
+          <MarketTable markets={product.markets} />
         </section>
       )}
     </>
