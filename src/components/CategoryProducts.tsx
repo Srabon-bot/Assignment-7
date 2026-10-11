@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { Product } from "@/lib/types";
 import { toBn } from "@/lib/format";
 import ProductCard from "./ProductCard";
@@ -16,6 +17,12 @@ const CategoryProducts = ({ products }: { products: Product[] }) => {
         return 0;
     });
 
+    const handleSortChange = (newSort: SortType) => {
+        setSort(newSort);
+        if (newSort === "asc") toast.info("দাম: কম থেকে বেশি সাজানো হয়েছে।");
+        if (newSort === "desc") toast.info("দাম: বেশি থেকে কম সাজানো হয়েছে।");
+    };
+
     return (
         <>
             <div className="flex items-center justify-end gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-4">
@@ -25,7 +32,7 @@ const CategoryProducts = ({ products }: { products: Product[] }) => {
                 <select
                     id="sort"
                     value={sort}
-                    onChange={(e) => setSort(e.target.value as SortType)}
+                    onChange={(e) => handleSortChange(e.target.value as SortType)}
                     className="select select-sm bg-white"
                 >
                     <option value="default">ডিফল্ট</option>

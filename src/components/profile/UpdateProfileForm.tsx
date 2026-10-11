@@ -22,6 +22,11 @@ const UpdateProfileForm = ({ defaultName }: { defaultName: string }) => {
             return;
         }
 
+        if (name === defaultName.trim()) {
+            toast.info("আপনি নতুন কোনো নাম দেননি।");
+            return;
+        }
+
         setLoading(true);
         const { error } = await authClient.updateUser({ name });
         setLoading(false);

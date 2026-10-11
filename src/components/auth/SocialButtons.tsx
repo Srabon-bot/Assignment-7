@@ -25,6 +25,11 @@ const buttonClass =
 const SocialButtons = () => {
     const handleSocial = async (provider: "google" | "github") => {
         try {
+            toast.info(
+                provider === "google"
+                    ? "গুগলে রিডাইরেক্ট করা হচ্ছে..."
+                    : "গিটহাবে রিডাইরেক্ট করা হচ্ছে..."
+            );
             const res = await authClient.signIn.social({
                 provider,
             });
