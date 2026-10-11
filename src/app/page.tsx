@@ -23,7 +23,7 @@ async function HomeSections() {
       <ProductSection
         title={
           <>
-            <span className="text-green-600">▲</span> আজ দাম বেড়েছে
+            <span className="text-red-600">▲</span> আজ দাম বেড়েছে
           </>
         }
         products={risers}
@@ -32,7 +32,7 @@ async function HomeSections() {
       <ProductSection
         title={
           <>
-            <span className="text-red-600">▼</span> আজ দাম কমেছে
+            <span className="text-green-600">▼</span> আজ দাম কমেছে
           </>
         }
         products={fallers}

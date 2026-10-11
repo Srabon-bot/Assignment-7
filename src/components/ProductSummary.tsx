@@ -3,7 +3,6 @@ import { toBn, unitBn, unitLine } from "@/lib/format";
 import PriceChange from "./PriceChange";
 
 const ProductSummary = ({ product }: { product: Product }) => {
-    // difference between today and yesterday, from the data itself
     const diff = product.today - product.yesterday;
 
     return (

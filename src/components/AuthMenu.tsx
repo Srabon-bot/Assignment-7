@@ -9,12 +9,10 @@ const AuthMenu = () => {
     const router = useRouter();
     const { data: session, isPending } = authClient.useSession();
 
-    // skeleton while the session loads
     if (isPending) {
         return <div className="skeleton h-9 w-40 rounded-full" />;
     }
 
-    // logged out: the two buttons
     if (!session) {
         return (
             <div className="flex items-center gap-2 sm:gap-4">
@@ -34,7 +32,6 @@ const AuthMenu = () => {
         );
     }
 
-    // logged in: first letter + name dropdown
     const { name, email } = session.user;
     const initial = (name || email).trim().charAt(0).toUpperCase();
 

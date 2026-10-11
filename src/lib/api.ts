@@ -5,7 +5,6 @@ const BASE_URLS = [
   "https://api.api-store.workers.dev/api/bazardor",
 ];
 
-// tries each host in order and returns the first usable response
 async function apiFetch(path: string, revalidate: number): Promise<Response> {
   let lastError: unknown;
 
@@ -32,7 +31,6 @@ export async function getProducts(category?: string): Promise<Product[]> {
   return res.json();
 }
 
-// returns null for an unknown slug
 export async function getProduct(slug: string): Promise<Product | null> {
   const products = await getProducts();
   return products.find((p) => p.slug === slug) ?? null;
@@ -44,7 +42,6 @@ export async function getCategories(): Promise<Category[]> {
   return res.json();
 }
 
-// returns null for an invalid slug
 export async function getCategory(slug: string): Promise<Category | null> {
   const res = await apiFetch(`/categories/${encodeURIComponent(slug)}`, 3600);
   if (!res.ok) return null;

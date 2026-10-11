@@ -1,9 +1,7 @@
 import { Market } from "./types";
 
-// average of one market's min and max
 export const marketAvg = (m: Market) => (m.min + m.max) / 2;
 
-// min / max across all markets, avg = mean of every market's own average
 export function getPriceStats(markets: Market[]) {
   if (markets.length === 0) return null;
 

@@ -4,12 +4,10 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { nextCookies } from "better-auth/next-js";
 import { MongoClient } from "mongodb";
 
-// some networks block the DNS lookup MongoDB Atlas needs; use public DNS in dev
 if (process.env.NODE_ENV !== "production") {
   dns.setServers(["8.8.8.8", "1.1.1.1"]);
 }
 
-// reuse one connection while the dev server hot-reloads
 const globalForMongo = globalThis as unknown as { mongoClient?: MongoClient };
 const client =
   globalForMongo.mongoClient ?? new MongoClient(process.env.MONGODB_URI!);
@@ -30,10 +28,16 @@ export const auth = betterAuth({
     disableOriginCheck: true,
     useSecureCookies: process.env.NODE_ENV === "production",
   },
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["google", "github"],
+    },
+  },
   database: mongodbAdapter(db),
   emailAndPassword: {
     enabled: true,
-    autoSignIn: false, // after sign up the user goes to the sign in page
+    autoSignIn: false,
   },
   socialProviders: {
     google: {
@@ -45,5 +49,5 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
     },
   },
-  plugins: [nextCookies()], // keep this last
+  plugins: [nextCookies()],
 });

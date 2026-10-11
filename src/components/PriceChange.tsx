@@ -4,7 +4,7 @@ import { toBnPercent } from "@/lib/format";
 const styles = {
   up: { color: "text-red-600", bg: "bg-red-50", symbol: "▲" },
   down: { color: "text-green-600", bg: "bg-green-50", symbol: "▼" },
-  flat: { color: "text-black", bg: "bg-gray-100", symbol: "—" },
+  flat: { color: "text-gray-600", bg: "bg-gray-100", symbol: "—" },
 };
 
 const PriceChange = ({ change }: { change: Product["change"] }) => {

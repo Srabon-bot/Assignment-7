@@ -3,7 +3,6 @@ import { toBn, toBnAvg } from "@/lib/format";
 import { marketAvg } from "@/lib/stats";
 
 const MarketTable = ({ markets }: { markets: Market[] }) => {
-    // cheapest market (by average) first
     const rows = [...markets].sort((a, b) => marketAvg(a) - marketAvg(b));
 
     return (
