@@ -18,11 +18,19 @@ if (process.env.NODE_ENV !== "production") globalForMongo.mongoClient = client;
 const db = client.db("bazardor");
 
 export const auth = betterAuth({
-  baseURL: process.env.BETTER_AUTH_URL || "https://assignment-7-kw2m.vercel.app",
+  baseURL: {
+    allowedHosts: ["assignment-7-kw2m.vercel.app", "*.vercel.app", "localhost:3000"],
+    protocol: process.env.NODE_ENV === "production" ? "https" : "http",
+    fallback: process.env.BETTER_AUTH_URL || "https://assignment-7-kw2m.vercel.app",
+  },
   trustedOrigins: [
     "https://assignment-7-kw2m.vercel.app",
+    "https://*.vercel.app",
     "http://localhost:3000",
   ],
+  advanced: {
+    useSecureCookies: process.env.NODE_ENV === "production",
+  },
   database: mongodbAdapter(db),
   emailAndPassword: {
     enabled: true,

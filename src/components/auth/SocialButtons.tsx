@@ -24,9 +24,15 @@ const buttonClass =
 
 const SocialButtons = () => {
     const handleSocial = async (provider: "google" | "github") => {
+        const target = getRedirectTarget();
+        const callbackURL =
+            typeof window !== "undefined"
+                ? `${window.location.origin}${target}`
+                : target;
+
         const { error } = await authClient.signIn.social({
             provider,
-            callbackURL: getRedirectTarget(),
+            callbackURL,
         });
 
         if (error) toast.error(authErrorMessage(error));
