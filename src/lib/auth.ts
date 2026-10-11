@@ -29,6 +29,7 @@ export const auth = betterAuth({
     "http://localhost:3000",
   ],
   advanced: {
+    trustedProxyHeaders: true,
     useSecureCookies: process.env.NODE_ENV === "production",
   },
   database: mongodbAdapter(db),
