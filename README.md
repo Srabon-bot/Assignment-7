@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# বাজার দর (BazarDor) 🛒
 
-## Getting Started
+দৈনন্দিন প্রয়োজনীয় পণ্যের বাজারদর পর্যবেক্ষণ ও তুলনামূলক বিশ্লেষণের একটি আধুনিক বাংলা ওয়েব অ্যাপ্লিকেশন। নিত্যপ্রয়োজনীয় পণ্যের আজকের দাম, গতকালের দামের সাথে তারতম্য (বৃদ্ধি/হ্রাস), বিভাগ ও বাজারভিত্তিক বিশদ মূল্য তালিকা এক নজরে দেখার জন্য তৈরি করা হয়েছে।
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 লাইভ ডেমো ও রিপোজিটরি (Live Links)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **লাইভ ওয়েবসাইট (Live URL):** [BazarDor on Vercel](https://assignment7-nine-pi.vercel.app/) *(বা আপনার ডেপ্লয় করা ডোমেইন লিংক)*
+- **গিটহাব রিপোজিটরি (GitHub Repository):** [github.com/Srabon-bot/Assignment-7](https://github.com/Srabon-bot/Assignment-7)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 সংক্ষিপ্ত পরিচিতি (Project Overview)
 
-## Learn More
+**বাজার দর (BazarDor)** বাংলাদেশের স্থানীয় বাজারগুলোর নিত্যপণ্যের মূল্যের ওঠানামা সাধারণ মানুষের কাছে স্বচ্ছ ও সহজে তুলে ধরার লক্ষ্যে নির্মিত। ব্যবহারকারীরা সহজেই আজকের সবচেয়ে বেশি দাম বৃদ্ধি ও হ্রাস পাওয়া পণ্য দেখতে পারেন, ক্যাটাগরি অনুযায়ী পণ্য ফিল্টার ও সাজাতে পারেন এবং লগইন করার মাধ্যমে নির্দিষ্ট পণ্যের জন্য বাজারভিত্তিক বিস্তারিত মূল্য তালিকা দেখতে পারেন।
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 মূল বৈশিষ্ট্যসমূহ (Key Features)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **রিয়েলটাইম প্রাইস টিকার ও লাইভ বাংলা তারিখ (Price Ticker & Bangla Date):**
+   - ওয়েবসাইটের শীর্ষভাগে স্বয়ংক্রিয়ভাবে চলমান প্রাইস টিকার (Marquee) যা প্রধান পণ্যসমূহের আজকের দর ও পরিবর্তনের শতাংশ প্রদর্শন করে।
+   - বর্তমান তারিখ স্বয়ংক্রিয়ভাবে বাংলা সংখ্যা ও বাংলা মাস অনুসারে ন্যাভবারে প্রদর্শিত হয়।
 
-## Deploy on Vercel
+2. **মূল্য পরিবর্তনের ওঠানামা সেকশন (Top Risers & Fallers):**
+   - **আজ দাম বেড়েছে ▲:** বাজারে আজকের দিনে সর্বাধিক মূল্যবৃদ্ধি পাওয়া শীর্ষ ৬টি পণ্যের তালিকা।
+   - **আজ দাম কমেছে ▼:** আজকের দিনে সর্বাধিক মূল্যহ্রাস পাওয়া শীর্ষ ৬টি পণ্যের তালিকা।
+   - কার্ডগুলোতে বাংলা সংখ্যায় মূল্য ও পরিবর্তনের হার স্পষ্টভাবে নির্দেশিত।
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **সংখ্যাসূচক সর্টিং ও ক্যাটাগরি ফিল্টারিং (Numeric Sorting - Challenge C1):**
+   - ক্যাটাগরিভিত্তিক ব্রাউজিং সুবিধা (চাল, ডাল, তেল, সবজি, মাছ, মাংস ইত্যাদি)।
+   - বাংলা সংখ্যার মান অনুযায়ী সঠিক সর্টিং ব্যবস্থা: *ডিফল্ট*, *দাম: কম থেকে বেশি*, এবং *দাম: বেশি থেকে কম* (স্ট্রিংভিত্তিক নয়, প্রকৃত সংখ্যাসূচক তুলনা)।
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **সুরক্ষিত প্রোডাক্ট বিস্তারিত পেজ (Protected Product Details Route):**
+   - পণ্যের বিস্তারিত তথ্য (`/product/[slug]`) দেখার জন্য ব্যবহারকারীকে অবশ্যই লগইন থাকতে হবে।
+   - অনিবন্ধিত ব্যবহারকারীকে স্বয়ংক্রিয়ভাবে নোটিফিকেশন টোস্টসহ সাইন-ইন পেজে রিডাইরেক্ট করা হয়।
+   - প্রতিটি পণ্যের ন্যূনতম দাম (Minimum), সর্বোচ্চ দাম (Maximum) এবং গড় দাম (Average) সামারি কার্ড।
+   - দেশের বিভিন্ন বাজার ও বিভাগের নামসহ আজকের বাজারভিত্তিক বিশদ তালিকা।
+
+5. **নিরাপদ অথেনটিকেশন ও প্রোফাইল ব্যবস্থাপনা (Better Auth & Profile Update - Challenge C3):**
+   - Better Auth এবং MongoDB Atlas সংহত করে ইমেইল/পাসওয়ার্ড ও সোশ্যাল লগইন (Google, GitHub)।
+   - প্রতিক্রিয়াশীল টোস্ট নোটিফিকেশন (সফল লগইন, সাইন-আপ, লগআউট ও ফর্ম ভ্যালিডেশন)।
+   - ব্যবহারকারীর প্রোফাইল পেজ (`/profile`) এবং নাম পরিবর্তনের সরাসরি সুবিধা (`/profile/update`)।
+
+6. **সম্পূর্ণ রেসপনসিভ ও ইউজার-ফ্রেন্ডলি ডিজাইন (Responsive UI & Loading Skeletons):**
+   - মোবাইল, ট্যাবলেট এবং ডেস্কটপ সব ধরনের স্ক্রিন সাইজের জন্য মানানসই ডিজাইন (Tailwind CSS + DaisyUI)।
+   - ডাটা ফেচিং ও পেজ লোডিংয়ের সময় সুন্দর স্কেলেটন অ্যানিমেশন (Home, Category, Product ও Auth Skeletons)।
+   - কাস্টম ৪MD/404 পেজ এবং ব্যবহারকারী-বান্ধব ফাঁকা অবস্থা (Empty State)।
+
+---
+
+## 🛠️ ব্যবহৃত প্রযুক্তিসমূহ (Technologies Used)
+
+- **ফ্রন্টএন্ড ফ্রেমওয়ার্ক:** [Next.js](https://nextjs.org/) (App Router, Version 16+ Turbopack, Partial Prerendering / Cache Components)
+- **প্রোগ্রামিং ভাষা:** [TypeScript](https://www.typescriptlang.org/)
+- **স্টাইলিং ও কম্পোনেন্ট লাইব্রেরি:** [Tailwind CSS v4](https://tailwindcss.com/), [daisyUI v5](https://daisyui.com/)
+- **ফন্ট:** Hind Siliguri (Google Fonts - বাংলা ফন্ট সাপোর্ট)
+- **অথেনটিকেশন:** [Better Auth](https://www.better-auth.com/)
+- **ডাটাবেস:** [MongoDB Atlas](https://www.mongodb.com/atlas) (MongoDB Adapter)
+- **টোস্ট নোটিফিকেশন:** React Toastify
+- **টিকার কম্পোনেন্ট:** react-marquee-text
+- **হোস্টিং ও ডিপ্লয়মেন্ট:** [Vercel](https://vercel.com/)
+
+---
+
+## ⚙️ লোকাল সেটআপ ও ইন্সটলেশন নির্দেশিকা (Local Setup)
+
+প্রকল্পটি আপনার লোকাল মেশিনে চালাতে নিচের ধাপগুলো অনুসরণ করুন:
+
+1. **রিপোজিটরি ক্লোন করুন:**
+   ```bash
+   git clone https://github.com/Srabon-bot/Assignment-7.git
+   cd Assignment-7/assignment7
+   ```
+
+2. **ডিপেন্ডেন্সি ইন্সটল করুন:**
+   ```bash
+   npm install
+   ```
+
+3. **এনভায়রনমেন্ট ভেরিয়েবল সেটআপ করুন:**
+   প্রজেক্টের রুটে একটি `.env` ফাইল তৈরি করে নিচের ভেরিয়েবলগুলো যুক্ত করুন:
+   ```env
+   # Database
+   MONGODB_URI="mongodb://user:pass@host1:27017,host2:27017/bazardor?ssl=true&replicaSet=atlas-xxx&authSource=admin"
+
+   # Better Auth
+   BETTER_AUTH_SECRET="your-better-auth-secret-key"
+   BETTER_AUTH_URL="http://localhost:3000"
+
+   # OAuth Providers (Optional / If configured)
+   GOOGLE_CLIENT_ID=""
+   GOOGLE_CLIENT_SECRET=""
+   GITHUB_CLIENT_ID=""
+   GITHUB_CLIENT_SECRET=""
+   ```
+
+4. **ডেভেলপমেন্ট সার্ভার চালু করুন:**
+   ```bash
+   npm run dev
+   ```
+   ব্রাউজারে [http://localhost:3000](http://localhost:3000) ওপেন করে প্রজেক্টটি দেখুন।
+
+5. **প্রোডাকশন বিল্ড টেস্ট করুন:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 👨‍💻 অবদানকারী (Author)
+
+- GitHub: [@Srabon-bot](https://github.com/Srabon-bot)
