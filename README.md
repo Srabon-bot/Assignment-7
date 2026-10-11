@@ -6,7 +6,7 @@
 
 ## 🌐 লাইভ ডেমো ও রিপোজিটরি (Live Links)
 
-- **লাইভ ওয়েবসাইট (Live URL):** [BazarDor on Vercel](https://assignment7-nine-pi.vercel.app/) *(বা আপনার ডেপ্লয় করা ডোমেইন লিংক)*
+- **লাইভ ওয়েবসাইট (Live URL):** [BazarDor on Vercel](https://assignment-7-kw2m.vercel.app/)
 - **গিটহাব রিপোজিটরি (GitHub Repository):** [github.com/Srabon-bot/Assignment-7](https://github.com/Srabon-bot/Assignment-7)
 
 ---
