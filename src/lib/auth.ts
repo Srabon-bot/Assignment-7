@@ -30,6 +30,7 @@ export const auth = betterAuth({
   ],
   advanced: {
     trustedProxyHeaders: true,
+    disableCSRFCheck: true,
     useSecureCookies: process.env.NODE_ENV === "production",
   },
   database: mongodbAdapter(db),
