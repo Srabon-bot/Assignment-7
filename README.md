@@ -1,114 +1,70 @@
-# বাজার দর (BazarDor) 🛒
+# BazarDor (বাজার দর) 🛒
 
-দৈনন্দিন প্রয়োজনীয় পণ্যের বাজারদর পর্যবেক্ষণ ও তুলনামূলক বিশ্লেষণের একটি আধুনিক বাংলা ওয়েব অ্যাপ্লিকেশন। নিত্যপ্রয়োজনীয় পণ্যের আজকের দাম, গতকালের দামের সাথে তারতম্য (বৃদ্ধি/হ্রাস), বিভাগ ও বাজারভিত্তিক বিশদ মূল্য তালিকা এক নজরে দেখার জন্য তৈরি করা হয়েছে।
-
----
-
-## 🌐 লাইভ ডেমো ও রিপোজিটরি (Live Links)
-
-- **লাইভ ওয়েবসাইট (Live URL):** [BazarDor on Vercel](https://assignment-7-kw2m.vercel.app/)
-- **গিটহাব রিপোজিটরি (GitHub Repository):** [github.com/Srabon-bot/Assignment-7](https://github.com/Srabon-bot/Assignment-7)
+A modern, responsive commodity and grocery price tracking web application for Bangladesh. BazarDor provides consumers with transparent insights into daily market prices, tracking day-to-day rate fluctuations, category-wise breakdowns, and market-by-market comparisons across multiple divisions.
 
 ---
 
-## 📖 সংক্ষিপ্ত পরিচিতি (Project Overview)
+## 🌐 Live Demo & Repository
 
-**বাজার দর (BazarDor)** বাংলাদেশের স্থানীয় বাজারগুলোর নিত্যপণ্যের মূল্যের ওঠানামা সাধারণ মানুষের কাছে স্বচ্ছ ও সহজে তুলে ধরার লক্ষ্যে নির্মিত। ব্যবহারকারীরা সহজেই আজকের সবচেয়ে বেশি দাম বৃদ্ধি ও হ্রাস পাওয়া পণ্য দেখতে পারেন, ক্যাটাগরি অনুযায়ী পণ্য ফিল্টার ও সাজাতে পারেন এবং লগইন করার মাধ্যমে নির্দিষ্ট পণ্যের জন্য বাজারভিত্তিক বিস্তারিত মূল্য তালিকা দেখতে পারেন।
-
----
-
-## 🚀 মূল বৈশিষ্ট্যসমূহ (Key Features)
-
-1. **রিয়েলটাইম প্রাইস টিকার ও লাইভ বাংলা তারিখ (Price Ticker & Bangla Date):**
-   - ওয়েবসাইটের শীর্ষভাগে স্বয়ংক্রিয়ভাবে চলমান প্রাইস টিকার (Marquee) যা প্রধান পণ্যসমূহের আজকের দর ও পরিবর্তনের শতাংশ প্রদর্শন করে।
-   - বর্তমান তারিখ স্বয়ংক্রিয়ভাবে বাংলা সংখ্যা ও বাংলা মাস অনুসারে ন্যাভবারে প্রদর্শিত হয়।
-
-2. **মূল্য পরিবর্তনের ওঠানামা সেকশন (Top Risers & Fallers):**
-   - **আজ দাম বেড়েছে ▲:** বাজারে আজকের দিনে সর্বাধিক মূল্যবৃদ্ধি পাওয়া শীর্ষ ৬টি পণ্যের তালিকা।
-   - **আজ দাম কমেছে ▼:** আজকের দিনে সর্বাধিক মূল্যহ্রাস পাওয়া শীর্ষ ৬টি পণ্যের তালিকা।
-   - কার্ডগুলোতে বাংলা সংখ্যায় মূল্য ও পরিবর্তনের হার স্পষ্টভাবে নির্দেশিত।
-
-3. **সংখ্যাসূচক সর্টিং ও ক্যাটাগরি ফিল্টারিং (Numeric Sorting - Challenge C1):**
-   - ক্যাটাগরিভিত্তিক ব্রাউজিং সুবিধা (চাল, ডাল, তেল, সবজি, মাছ, মাংস ইত্যাদি)।
-   - বাংলা সংখ্যার মান অনুযায়ী সঠিক সর্টিং ব্যবস্থা: *ডিফল্ট*, *দাম: কম থেকে বেশি*, এবং *দাম: বেশি থেকে কম* (স্ট্রিংভিত্তিক নয়, প্রকৃত সংখ্যাসূচক তুলনা)।
-
-4. **সুরক্ষিত প্রোডাক্ট বিস্তারিত পেজ (Protected Product Details Route):**
-   - পণ্যের বিস্তারিত তথ্য (`/product/[slug]`) দেখার জন্য ব্যবহারকারীকে অবশ্যই লগইন থাকতে হবে।
-   - অনিবন্ধিত ব্যবহারকারীকে স্বয়ংক্রিয়ভাবে নোটিফিকেশন টোস্টসহ সাইন-ইন পেজে রিডাইরেক্ট করা হয়।
-   - প্রতিটি পণ্যের ন্যূনতম দাম (Minimum), সর্বোচ্চ দাম (Maximum) এবং গড় দাম (Average) সামারি কার্ড।
-   - দেশের বিভিন্ন বাজার ও বিভাগের নামসহ আজকের বাজারভিত্তিক বিশদ তালিকা।
-
-5. **নিরাপদ অথেনটিকেশন ও প্রোফাইল ব্যবস্থাপনা (Better Auth & Profile Update - Challenge C3):**
-   - Better Auth এবং MongoDB Atlas সংহত করে ইমেইল/পাসওয়ার্ড ও সোশ্যাল লগইন (Google, GitHub)।
-   - প্রতিক্রিয়াশীল টোস্ট নোটিফিকেশন (সফল লগইন, সাইন-আপ, লগআউট ও ফর্ম ভ্যালিডেশন)।
-   - ব্যবহারকারীর প্রোফাইল পেজ (`/profile`) এবং নাম পরিবর্তনের সরাসরি সুবিধা (`/profile/update`)।
-
-6. **সম্পূর্ণ রেসপনসিভ ও ইউজার-ফ্রেন্ডলি ডিজাইন (Responsive UI & Loading Skeletons):**
-   - মোবাইল, ট্যাবলেট এবং ডেস্কটপ সব ধরনের স্ক্রিন সাইজের জন্য মানানসই ডিজাইন (Tailwind CSS + DaisyUI)।
-   - ডাটা ফেচিং ও পেজ লোডিংয়ের সময় সুন্দর স্কেলেটন অ্যানিমেশন (Home, Category, Product ও Auth Skeletons)।
-   - কাস্টম ৪MD/404 পেজ এবং ব্যবহারকারী-বান্ধব ফাঁকা অবস্থা (Empty State)।
+- **Live Application:** [https://assignment-7-kw2m.vercel.app](https://assignment-7-kw2m.vercel.app/)
+- **GitHub Repository:** [https://github.com/Srabon-bot/Assignment-7](https://github.com/Srabon-bot/Assignment-7)
 
 ---
 
-## 🛠️ ব্যবহৃত প্রযুক্তিসমূহ (Technologies Used)
+## 📖 Project Overview
 
-- **ফ্রন্টএন্ড ফ্রেমওয়ার্ক:** [Next.js](https://nextjs.org/) (App Router, Version 16+ Turbopack, Partial Prerendering / Cache Components)
-- **প্রোগ্রামিং ভাষা:** [TypeScript](https://www.typescriptlang.org/)
-- **স্টাইলিং ও কম্পোনেন্ট লাইব্রেরি:** [Tailwind CSS v4](https://tailwindcss.com/), [daisyUI v5](https://daisyui.com/)
-- **ফন্ট:** Hind Siliguri (Google Fonts - বাংলা ফন্ট সাপোর্ট)
-- **অথেনটিকেশন:** [Better Auth](https://www.better-auth.com/)
-- **ডাটাবেস:** [MongoDB Atlas](https://www.mongodb.com/atlas) (MongoDB Adapter)
-- **টোস্ট নোটিফিকেশন:** React Toastify
-- **টিকার কম্পোনেন্ট:** react-marquee-text
-- **হোস্টিং ও ডিপ্লয়মেন্ট:** [Vercel](https://vercel.com/)
+**BazarDor (বাজার দর)** is designed to empower everyday consumers by making grocery price trends accessible and intuitive. The application surfaces essential commodity insights, highlighting items experiencing the highest price increases and steepest drops. Authenticated users can access comprehensive product breakdowns, comparing live rates across various wholesale and retail markets throughout Bangladesh.
 
 ---
 
-## ⚙️ লোকাল সেটআপ ও ইন্সটলেশন নির্দেশিকা (Local Setup)
+## 🚀 Key Features
 
-প্রকল্পটি আপনার লোকাল মেশিনে চালাতে নিচের ধাপগুলো অনুসরণ করুন:
+1. **Real-time Price Marquee & Live Bangla Calendar Date:**
+   - Continuous price ticker displaying essential commodity rates, units, and fluctuation badges.
+   - Dynamic Bangla calendar date formatted natively based on Bangladesh Standard Time.
 
-1. **রিপোজিটরি ক্লোন করুন:**
-   ```bash
-   git clone https://github.com/Srabon-bot/Assignment-7.git
-   cd Assignment-7/assignment7
-   ```
+2. **Daily Price Risers & Fallers Breakdown:**
+   - **আজ দাম বেড়েছে ▲:** Dedicated top 6 commodity risers highlighting daily rate increases.
+   - **আজ দাম কমেছে ▼:** Dedicated top 6 commodity fallers highlighting daily price reductions.
+   - All rates and percentage calculations presented using Bengali numerals.
 
-2. **ডিপেন্ডেন্সি ইন্সটল করুন:**
-   ```bash
-   npm install
-   ```
+3. **Numeric Category Sorting & Filtering (Challenge C1):**
+   - Category-wise navigation across staples including rice, lentils, vegetables, fish, and meat.
+   - Numerical value-based sorting controls (*Default*, *Price: Low to High*, and *Price: High to Low*) evaluating underlying values accurately rather than lexicographical string comparisons.
 
-3. **এনভায়রনমেন্ট ভেরিয়েবল সেটআপ করুন:**
-   প্রজেক্টের রুটে একটি `.env` ফাইল তৈরি করে নিচের ভেরিয়েবলগুলো যুক্ত করুন:
-   ```env
-   # Database
-   MONGODB_URI="mongodb://user:pass@host1:27017,host2:27017/bazardor?ssl=true&replicaSet=atlas-xxx&authSource=admin"
+4. **Protected Product Details & Market Breakdown:**
+   - Secure route guarding `/product/[slug]` requiring user authentication.
+   - Comprehensive price overview displaying minimum, maximum, and average market rates.
+   - Market-wise comparison table showing price intervals and division details for individual bazaars.
 
-   # Better Auth
-   BETTER_AUTH_SECRET="your-better-auth-secret-key"
-   BETTER_AUTH_URL="http://localhost:3000"
+5. **Robust Authentication & Profile Management (Challenge C3):**
+   - Built on Better Auth with MongoDB Atlas supporting email/password, Google, and GitHub OAuth sign-in.
+   - Seamless account linking allowing users with existing accounts to authenticate via social providers.
+   - Profile management interface (`/profile`) with direct name update capabilities (`/profile/update`).
 
-   # OAuth Providers (Optional / If configured)
-   GOOGLE_CLIENT_ID=""
-   GOOGLE_CLIENT_SECRET=""
-   GITHUB_CLIENT_ID=""
-   GITHUB_CLIENT_SECRET=""
-   ```
-
-4. **ডেভেলপমেন্ট সার্ভার চালু করুন:**
-   ```bash
-   npm run dev
-   ```
-   ব্রাউজারে [http://localhost:3000](http://localhost:3000) ওপেন করে প্রজেক্টটি দেখুন।
-
-5. **প্রোডাকশন বিল্ড টেস্ট করুন:**
-   ```bash
-   npm run build
-   ```
+6. **Adaptive Responsive UI & Loading States:**
+   - Fully optimized layouts across mobile, tablet, and desktop screens with DaisyUI and Tailwind CSS.
+   - Dedicated skeleton loaders across Home, Category, Product, and Authentication routes.
+   - Custom 404 error page with fallback navigation back to the homepage.
 
 ---
 
-## 👨‍💻 অবদানকারী (Author)
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+| :--- | :--- |
+| **Next.js (App Router)** | Core framework, partial prerendering & server component architecture |
+| **TypeScript** | Type safety and reliable code structure |
+| **Tailwind CSS v4** | Utility-first responsive styling |
+| **DaisyUI v5** | Accessible UI component primitives |
+| **Better Auth** | Authentication framework with OAuth & session handling |
+| **MongoDB Atlas** | Persistent storage for users, accounts, and sessions |
+| **React Toastify** | Interactive feedback notifications |
+| **react-marquee-text** | Infinite scrolling price ticker strip |
+| **Vercel** | Production hosting and edge deployment |
+
+---
+
+## 👨‍💻 Author
 
 - GitHub: [@Srabon-bot](https://github.com/Srabon-bot)
