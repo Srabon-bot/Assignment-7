@@ -24,13 +24,18 @@ const buttonClass =
 
 const SocialButtons = () => {
     const handleSocial = async (provider: "google" | "github") => {
-        const target = getRedirectTarget();
-        const { error } = await authClient.signIn.social({
-            provider,
-            ...(target && target !== "/" ? { callbackURL: target } : {}),
-        });
-
-        if (error) toast.error(authErrorMessage(error));
+        try {
+            const res = await authClient.signIn.social({
+                provider,
+            });
+            if (res?.error) {
+                console.error("Social signin error:", res.error);
+                toast.error(authErrorMessage(res.error));
+            }
+        } catch (err: unknown) {
+            console.error("Social signin exception:", err);
+            toast.error("কিছু ভুল হয়েছে, আবার চেষ্টা করুন।");
+        }
     };
 
     return (
